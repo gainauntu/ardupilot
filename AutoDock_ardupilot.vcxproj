@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{E3067C36-5320-4672-871C-50766B389102}</ProjectGuid>
+    <RootNamespace>AutoDockardupilot</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Rover\afs_rover.cpp" />
+    <ClCompile Include="Rover\AP_Arming.cpp" />
+    <ClCompile Include="Rover\AP_Rally.cpp" />
+    <ClCompile Include="Rover\balance_bot.cpp" />
+    <ClCompile Include="Rover\commands.cpp" />
+    <ClCompile Include="Rover\crash_check.cpp" />
+    <ClCompile Include="Rover\cruise_learn.cpp" />
+    <ClCompile Include="Rover\ekf_check.cpp" />
+    <ClCompile Include="Rover\failsafe.cpp" />
+    <ClCompile Include="Rover\fence.cpp" />
+    <ClCompile Include="Rover\GCS_Mavlink.cpp" />
+    <ClCompile Include="Rover\GCS_Rover.cpp" />
+    <ClCompile Include="Rover\Log.cpp" />
+    <ClCompile Include="Rover\mode.cpp" />
+    <ClCompile Include="Rover\mode_acro.cpp" />
+    <ClCompile Include="Rover\mode_auto.cpp" />
+    <ClCompile Include="Rover\mode_dock.cpp" />
+    <ClCompile Include="Rover\mode_follow.cpp" />
+    <ClCompile Include="Rover\mode_guided.cpp" />
+    <ClCompile Include="Rover\mode_hold.cpp" />
+    <ClCompile Include="Rover\mode_loiter.cpp" />
+    <ClCompile Include="Rover\mode_manual.cpp" />
+    <ClCompile Include="Rover\mode_rtl.cpp" />
+    <ClCompile Include="Rover\mode_simple.cpp" />
+    <ClCompile Include="Rover\mode_smart_rtl.cpp" />
+    <ClCompile Include="Rover\mode_steering.cpp" />
+    <ClCompile Include="Rover\motor_test.cpp" />
+    <ClCompile Include="Rover\Parameters.cpp" />
+    <ClCompile Include="Rover\precision_landing.cpp" />
+    <ClCompile Include="Rover\radio.cpp" />
+    <ClCompile Include="Rover\RC_Channel.cpp" />
+    <ClCompile Include="Rover\Rover.cpp" />
+    <ClCompile Include="Rover\sailboat.cpp" />
+    <ClCompile Include="Rover\sensors.cpp" />
+    <ClCompile Include="Rover\Steering.cpp" />
+    <ClCompile Include="Rover\system.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Rover\afs_rover.h" />
+    <ClInclude Include="Rover\AP_Arming.h" />
+    <ClInclude Include="Rover\AP_Rally.h" />
+    <ClInclude Include="Rover\config.h" />
+    <ClInclude Include="Rover\defines.h" />
+    <ClInclude Include="Rover\GCS_Mavlink.h" />
+    <ClInclude Include="Rover\GCS_Rover.h" />
+    <ClInclude Include="Rover\mode.h" />
+    <ClInclude Include="Rover\Parameters.h" />
+    <ClInclude Include="Rover\RC_Channel.h" />
+    <ClInclude Include="Rover\Rover.h" />
+    <ClInclude Include="Rover\sailboat.h" />
+    <ClInclude Include="Rover\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rover\createTags" />
+    <None Include="Rover\Makefile.waf" />
+    <None Include="Rover\wscript" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Rover\release-notes.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

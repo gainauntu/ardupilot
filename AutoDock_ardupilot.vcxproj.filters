@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Rover">
+      <UniqueIdentifier>{508e0db2-84ab-41a8-8f94-181f70c349e7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Rover\afs_rover.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\AP_Arming.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\AP_Rally.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\balance_bot.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\commands.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\crash_check.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\cruise_learn.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\ekf_check.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\failsafe.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\fence.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\GCS_Mavlink.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\GCS_Rover.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\Log.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_acro.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_auto.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_dock.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_follow.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_guided.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_hold.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_loiter.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_manual.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_rtl.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_simple.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_smart_rtl.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\mode_steering.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\motor_test.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\Parameters.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\precision_landing.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\radio.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\RC_Channel.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\Rover.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\sailboat.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\sensors.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\Steering.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+    <ClCompile Include="Rover\system.cpp">
+      <Filter>Rover</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Rover\afs_rover.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\AP_Arming.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\AP_Rally.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\config.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\defines.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\GCS_Mavlink.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\GCS_Rover.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\mode.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\Parameters.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\RC_Channel.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\Rover.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\sailboat.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+    <ClInclude Include="Rover\version.h">
+      <Filter>Rover</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rover\createTags">
+      <Filter>Rover</Filter>
+    </None>
+    <None Include="Rover\Makefile.waf">
+      <Filter>Rover</Filter>
+    </None>
+    <None Include="Rover\wscript">
+      <Filter>Rover</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Rover\release-notes.txt">
+      <Filter>Rover</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
