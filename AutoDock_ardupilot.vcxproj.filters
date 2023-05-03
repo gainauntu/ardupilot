@@ -1,8 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <None Include=".dir-locals.el" />
+    <None Include=".dockerignore" />
+    <None Include=".editorconfig" />
+    <None Include=".flake8" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include=".gitmodules" />
+    <None Include=".pre-commit-config.yaml" />
+    <None Include=".pydevproject" />
+    <None Include=".valgrindrc" />
+    <None Include=".valgrind-suppressions" />
+    <None Include="appveyor.yml" />
+    <None Include="BUILD.md" />
+    <None Include="CODE_OF_CONDUCT.md" />
+    <None Include="Dockerfile" />
+    <None Include="Doxyfile.in" />
+    <None Include="Makefile" />
+    <None Include="pyproject.toml" />
+    <None Include="README.md" />
+    <None Include="Vagrantfile" />
+    <None Include="waf" />
+    <None Include="wscript" />
+    <None Include="Rover\createTags">
+      <Filter>Rover</Filter>
+    </None>
+    <None Include="Rover\Makefile.waf">
+      <Filter>Rover</Filter>
+    </None>
+    <None Include="Rover\wscript">
+      <Filter>Rover</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="COPYING.txt" />
+    <Text Include="Rover\release-notes.txt">
+      <Filter>Rover</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Rover">
-      <UniqueIdentifier>{508e0db2-84ab-41a8-8f94-181f70c349e7}</UniqueIdentifier>
+      <UniqueIdentifier>{cffd8258-da6f-455d-b820-0830eabea2bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -155,21 +194,5 @@
     <ClInclude Include="Rover\version.h">
       <Filter>Rover</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rover\createTags">
-      <Filter>Rover</Filter>
-    </None>
-    <None Include="Rover\Makefile.waf">
-      <Filter>Rover</Filter>
-    </None>
-    <None Include="Rover\wscript">
-      <Filter>Rover</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Rover\release-notes.txt">
-      <Filter>Rover</Filter>
-    </Text>
   </ItemGroup>
 </Project>

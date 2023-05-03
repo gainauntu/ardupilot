@@ -130,6 +130,10 @@ void ModeAuto::update()
             rover.mode_loiter.update();
             break;
 
+        case Auto_Dock:
+            rover.mode_dock.update();
+            break;
+
         case Auto_Guided:
         {
             // send location target to offboard navigation system
@@ -172,6 +176,8 @@ float ModeAuto::get_distance_to_destination() const
         return rover.mode_rtl.get_distance_to_destination();
     case Auto_Loiter:
         return rover.mode_loiter.get_distance_to_destination();
+    case Auto_Dock:
+        return rover.mode_dock.get_distance_to_destination();
     case Auto_Guided:
     case Auto_NavScriptTime:
         return rover.mode_guided.get_distance_to_destination();
@@ -199,9 +205,10 @@ bool ModeAuto::get_desired_location(Location& destination) const
         return rover.mode_rtl.get_desired_location(destination);
     case Auto_Loiter:
         return rover.mode_loiter.get_desired_location(destination);
+    case Auto_Dock:
     case Auto_Guided:
     case Auto_NavScriptTime:
-        return rover.mode_guided.get_desired_location(destination);\
+        return rover.mode_guided.get_desired_location(destination);
     }
 
     // we should never reach here but just in case
@@ -239,6 +246,7 @@ bool ModeAuto::reached_destination() const
     case Auto_Loiter:
         return rover.mode_loiter.reached_destination();
         break;
+    case Auto_Dock:
     case Auto_Guided:
     case Auto_NavScriptTime:
         return rover.mode_guided.reached_destination();
@@ -263,6 +271,7 @@ bool ModeAuto::set_desired_speed(float speed)
         return rover.mode_rtl.set_desired_speed(speed);
     case Auto_Loiter:
         return rover.mode_loiter.set_desired_speed(speed);
+    case Auto_Dock:
     case Auto_Guided:
     case Auto_NavScriptTime:
         return rover.mode_guided.set_desired_speed(speed);
@@ -357,6 +366,15 @@ bool ModeAuto::start_loiter()
     return false;
 }
 
+bool ModeAuto::start_dock()
+{
+    if (rover.mode_dock.enter()) {
+        _submode = Auto_Dock;
+        return true;
+    }
+    return false; 
+}
+
 // hand over control to external navigation controller in AUTO mode
 void ModeAuto::start_guided(const Location& loc)
 {
@@ -426,7 +444,8 @@ bool ModeAuto::start_command(const AP_Mission::Mission_Command& cmd)
 
     case MAV_CMD_NAV_LOITER_UNLIM:  // Loiter indefinitely
     case MAV_CMD_NAV_LOITER_TIME:   // Loiter for specified time
-        return do_nav_wp(cmd, true);
+        //return do_nav_wp(cmd, true);
+        do_dock_delay(cmd);
 
     case MAV_CMD_NAV_GUIDED_ENABLE: // accept navigation commands from external nav computer
         do_nav_guided_enable(cmd);
@@ -571,7 +590,8 @@ bool ModeAuto::verify_command(const AP_Mission::Mission_Command& cmd)
         return verify_loiter_unlimited(cmd);
 
     case MAV_CMD_NAV_LOITER_TIME:
-        return verify_loiter_time(cmd);
+        //return verify_loiter_time(cmd);
+        return verify_dock_delay(cmd);
 
     case MAV_CMD_NAV_GUIDED_ENABLE:
         return verify_nav_guided_enable(cmd);
@@ -680,6 +700,25 @@ void ModeAuto::do_nav_delay(const AP_Mission::Mission_Command& cmd)
     gcs().send_text(MAV_SEVERITY_INFO, "Delaying %u sec", (unsigned)(nav_delay_time_max_ms/1000));
 }
 
+void ModeAuto::do_dock_delay(const AP_Mission::Mission_Command& cmd)
+{
+    nav_delay_time_start_ms = millis();
+
+    //simple set delay function without any docking implementation
+    //check verify_dock_delay() for dock attempts
+
+    if (cmd.content.nav_delay.seconds > 0) {
+        // relative delay
+        nav_delay_time_max_ms = cmd.content.nav_delay.seconds * 1000; // convert seconds to milliseconds
+    }
+    else {
+        // absolute delay to utc time
+        nav_delay_time_max_ms = AP::rtc().get_time_utc(cmd.content.nav_delay.hour_utc, cmd.content.nav_delay.min_utc, cmd.content.nav_delay.sec_utc, 0);
+    }
+    gcs().send_text(MAV_SEVERITY_INFO, "Dock try timeout %u secs", (unsigned)(nav_delay_time_max_ms / 1000));
+
+}
+
 // start guided within auto to allow external navigation system to control vehicle
 void ModeAuto::do_nav_guided_enable(const AP_Mission::Mission_Command& cmd)
 {
@@ -749,6 +788,25 @@ bool ModeAuto::verify_nav_wp(const AP_Mission::Mission_Command& cmd)
 // verify_nav_delay - check if we have waited long enough
 bool ModeAuto::verify_nav_delay(const AP_Mission::Mission_Command& cmd)
 {
+    if (millis() - nav_delay_time_start_ms > nav_delay_time_max_ms) {
+        nav_delay_time_max_ms = 0;
+        return true;
+    }
+
+    return false;
+}
+
+bool ModeAuto::verify_dock_delay(const AP_Mission::Mission_Command& cmd)
+{
+    if (rover.is_boat()) {
+        if (start_dock()) {
+            return true;
+        }
+        else {
+            start_dock();
+        }
+    }
+
     if (millis() - nav_delay_time_start_ms > nav_delay_time_max_ms) {
         nav_delay_time_max_ms = 0;
         return true;

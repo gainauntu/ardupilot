@@ -18,6 +18,90 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".dir-locals.el" />
+    <None Include=".dockerignore" />
+    <None Include=".editorconfig" />
+    <None Include=".flake8" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include=".gitmodules" />
+    <None Include=".pre-commit-config.yaml" />
+    <None Include=".pydevproject" />
+    <None Include=".valgrind-suppressions" />
+    <None Include=".valgrindrc" />
+    <None Include="appveyor.yml" />
+    <None Include="BUILD.md" />
+    <None Include="CODE_OF_CONDUCT.md" />
+    <None Include="Dockerfile" />
+    <None Include="Doxyfile.in" />
+    <None Include="Makefile" />
+    <None Include="pyproject.toml" />
+    <None Include="README.md" />
+    <None Include="Rover\createTags" />
+    <None Include="Rover\Makefile.waf" />
+    <None Include="Rover\wscript" />
+    <None Include="Vagrantfile" />
+    <None Include="waf" />
+    <None Include="wscript" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="COPYING.txt" />
+    <Text Include="Rover\release-notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Rover\afs_rover.cpp" />
+    <ClCompile Include="Rover\AP_Arming.cpp" />
+    <ClCompile Include="Rover\AP_Rally.cpp" />
+    <ClCompile Include="Rover\balance_bot.cpp" />
+    <ClCompile Include="Rover\commands.cpp" />
+    <ClCompile Include="Rover\crash_check.cpp" />
+    <ClCompile Include="Rover\cruise_learn.cpp" />
+    <ClCompile Include="Rover\ekf_check.cpp" />
+    <ClCompile Include="Rover\failsafe.cpp" />
+    <ClCompile Include="Rover\fence.cpp" />
+    <ClCompile Include="Rover\GCS_Mavlink.cpp" />
+    <ClCompile Include="Rover\GCS_Rover.cpp" />
+    <ClCompile Include="Rover\Log.cpp" />
+    <ClCompile Include="Rover\mode.cpp" />
+    <ClCompile Include="Rover\mode_acro.cpp" />
+    <ClCompile Include="Rover\mode_auto.cpp" />
+    <ClCompile Include="Rover\mode_dock.cpp" />
+    <ClCompile Include="Rover\mode_follow.cpp" />
+    <ClCompile Include="Rover\mode_guided.cpp" />
+    <ClCompile Include="Rover\mode_hold.cpp" />
+    <ClCompile Include="Rover\mode_loiter.cpp" />
+    <ClCompile Include="Rover\mode_manual.cpp" />
+    <ClCompile Include="Rover\mode_rtl.cpp" />
+    <ClCompile Include="Rover\mode_simple.cpp" />
+    <ClCompile Include="Rover\mode_smart_rtl.cpp" />
+    <ClCompile Include="Rover\mode_steering.cpp" />
+    <ClCompile Include="Rover\motor_test.cpp" />
+    <ClCompile Include="Rover\Parameters.cpp" />
+    <ClCompile Include="Rover\precision_landing.cpp" />
+    <ClCompile Include="Rover\radio.cpp" />
+    <ClCompile Include="Rover\RC_Channel.cpp" />
+    <ClCompile Include="Rover\Rover.cpp" />
+    <ClCompile Include="Rover\sailboat.cpp" />
+    <ClCompile Include="Rover\sensors.cpp" />
+    <ClCompile Include="Rover\Steering.cpp" />
+    <ClCompile Include="Rover\system.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Rover\afs_rover.h" />
+    <ClInclude Include="Rover\AP_Arming.h" />
+    <ClInclude Include="Rover\AP_Rally.h" />
+    <ClInclude Include="Rover\config.h" />
+    <ClInclude Include="Rover\defines.h" />
+    <ClInclude Include="Rover\GCS_Mavlink.h" />
+    <ClInclude Include="Rover\GCS_Rover.h" />
+    <ClInclude Include="Rover\mode.h" />
+    <ClInclude Include="Rover\Parameters.h" />
+    <ClInclude Include="Rover\RC_Channel.h" />
+    <ClInclude Include="Rover\Rover.h" />
+    <ClInclude Include="Rover\sailboat.h" />
+    <ClInclude Include="Rover\version.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{E3067C36-5320-4672-871C-50766B389102}</ProjectGuid>
@@ -122,67 +206,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Rover\afs_rover.cpp" />
-    <ClCompile Include="Rover\AP_Arming.cpp" />
-    <ClCompile Include="Rover\AP_Rally.cpp" />
-    <ClCompile Include="Rover\balance_bot.cpp" />
-    <ClCompile Include="Rover\commands.cpp" />
-    <ClCompile Include="Rover\crash_check.cpp" />
-    <ClCompile Include="Rover\cruise_learn.cpp" />
-    <ClCompile Include="Rover\ekf_check.cpp" />
-    <ClCompile Include="Rover\failsafe.cpp" />
-    <ClCompile Include="Rover\fence.cpp" />
-    <ClCompile Include="Rover\GCS_Mavlink.cpp" />
-    <ClCompile Include="Rover\GCS_Rover.cpp" />
-    <ClCompile Include="Rover\Log.cpp" />
-    <ClCompile Include="Rover\mode.cpp" />
-    <ClCompile Include="Rover\mode_acro.cpp" />
-    <ClCompile Include="Rover\mode_auto.cpp" />
-    <ClCompile Include="Rover\mode_dock.cpp" />
-    <ClCompile Include="Rover\mode_follow.cpp" />
-    <ClCompile Include="Rover\mode_guided.cpp" />
-    <ClCompile Include="Rover\mode_hold.cpp" />
-    <ClCompile Include="Rover\mode_loiter.cpp" />
-    <ClCompile Include="Rover\mode_manual.cpp" />
-    <ClCompile Include="Rover\mode_rtl.cpp" />
-    <ClCompile Include="Rover\mode_simple.cpp" />
-    <ClCompile Include="Rover\mode_smart_rtl.cpp" />
-    <ClCompile Include="Rover\mode_steering.cpp" />
-    <ClCompile Include="Rover\motor_test.cpp" />
-    <ClCompile Include="Rover\Parameters.cpp" />
-    <ClCompile Include="Rover\precision_landing.cpp" />
-    <ClCompile Include="Rover\radio.cpp" />
-    <ClCompile Include="Rover\RC_Channel.cpp" />
-    <ClCompile Include="Rover\Rover.cpp" />
-    <ClCompile Include="Rover\sailboat.cpp" />
-    <ClCompile Include="Rover\sensors.cpp" />
-    <ClCompile Include="Rover\Steering.cpp" />
-    <ClCompile Include="Rover\system.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Rover\afs_rover.h" />
-    <ClInclude Include="Rover\AP_Arming.h" />
-    <ClInclude Include="Rover\AP_Rally.h" />
-    <ClInclude Include="Rover\config.h" />
-    <ClInclude Include="Rover\defines.h" />
-    <ClInclude Include="Rover\GCS_Mavlink.h" />
-    <ClInclude Include="Rover\GCS_Rover.h" />
-    <ClInclude Include="Rover\mode.h" />
-    <ClInclude Include="Rover\Parameters.h" />
-    <ClInclude Include="Rover\RC_Channel.h" />
-    <ClInclude Include="Rover\Rover.h" />
-    <ClInclude Include="Rover\sailboat.h" />
-    <ClInclude Include="Rover\version.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rover\createTags" />
-    <None Include="Rover\Makefile.waf" />
-    <None Include="Rover\wscript" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Rover\release-notes.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

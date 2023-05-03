@@ -295,12 +295,14 @@ protected:
         Auto_Guided,            // handover control to external navigation system from within auto mode
         Auto_Stop,              // stop the vehicle as quickly as possible
         Auto_NavScriptTime,     // accept targets from lua scripts while NAV_SCRIPT_TIME commands are executing
+        Auto_Dock,              // performs dock within Auto Mode
     } _submode;
 
 private:
 
     bool check_trigger(void);
     bool start_loiter();
+    bool start_dock(); //custom added dock mode
     void start_guided(const Location& target_loc);
     void start_stop();
     void send_guided_position_target();
@@ -315,7 +317,9 @@ private:
     void do_nav_guided_enable(const AP_Mission::Mission_Command& cmd);
     void do_nav_set_yaw_speed(const AP_Mission::Mission_Command& cmd);
     void do_nav_delay(const AP_Mission::Mission_Command& cmd);
+    void do_dock_delay(const AP_Mission::Mission_Command& cmd); //added function for dock with timeout 
     bool verify_nav_delay(const AP_Mission::Mission_Command& cmd);
+    bool verify_dock_delay(const AP_Mission::Mission_Command& cmd);
     bool verify_nav_wp(const AP_Mission::Mission_Command& cmd);
     bool verify_RTL() const;
     bool verify_loiter_unlimited(const AP_Mission::Mission_Command& cmd);

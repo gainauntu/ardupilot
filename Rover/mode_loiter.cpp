@@ -75,6 +75,6 @@ void ModeLoiter::update()
 // get desired location
 bool ModeLoiter::get_desired_location(Location& destination) const
 {
-    destination = _destination;
+    destination = f_destination;
     return true;
 }
