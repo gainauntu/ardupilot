@@ -401,7 +401,7 @@ bool AC_PrecLand::target_acquired()
     if ((AP_HAL::millis()-_last_update_ms) > LANDING_TARGET_TIMEOUT_MS) {
         if (_target_acquired) {
             // just lost the landing target, inform the user. This message will only be sent once everytime target is lost
-            gcs().send_text(MAV_SEVERITY_CRITICAL, "PrecLand: Target Lost");
+            gcs().send_text(MAV_SEVERITY_INFO, "PrecLand: Target Lost");
         }
         // not had a sensor update since a long time
         // probably lost the target
@@ -602,7 +602,7 @@ void AC_PrecLand::check_ekf_init_timeout()
         if (AP_HAL::millis()-_last_update_ms > EKF_INIT_SENSOR_MIN_UPDATE_MS) {
             // we have lost the target, not enough readings to initialize the EKF
             _estimator_initialized = false;
-            gcs().send_text(MAV_SEVERITY_CRITICAL, "PrecLand: Init Failed");
+            gcs().send_text(MAV_SEVERITY_INFO, "PrecLand: Init Failed");
         } else if (AP_HAL::millis()-_estimator_init_ms > EKF_INIT_TIME_MS) {
             // the target has been visible for a while, EKF should now have initialized to a good value
             _target_acquired = true;

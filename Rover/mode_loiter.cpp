@@ -20,6 +20,7 @@ bool ModeLoiter::_enter()
 
 void ModeLoiter::update()
 {
+//	gcs().send_text(MAV_SEVERITY_INFO, "Loiter: updating");
     // get distance (in meters) to destination
     _distance_to_destination = rover.current_loc.get_distance(_destination);
 
@@ -75,6 +76,6 @@ void ModeLoiter::update()
 // get desired location
 bool ModeLoiter::get_desired_location(Location& destination) const
 {
-    destination = f_destination;
+    destination = _destination;
     return true;
 }

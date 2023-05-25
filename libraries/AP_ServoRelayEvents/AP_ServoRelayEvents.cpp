@@ -34,7 +34,6 @@ bool AP_ServoRelayEvents::do_set_servo(uint8_t _channel, uint16_t pwm)
     }
     switch(c->get_function())
     {
-    case SRV_Channel::k_none:
     case SRV_Channel::k_manual:
     case SRV_Channel::k_sprayer_pump:
     case SRV_Channel::k_sprayer_spinner:

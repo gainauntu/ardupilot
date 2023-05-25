@@ -58,9 +58,10 @@ ModeDock::ModeDock(void) : Mode()
 // initialize dock mode
 bool ModeDock::_enter()
 {
+	_docking_complete = false;
     // refuse to enter the mode if dock is not in sight
     if (!rover.precland.enabled() || !rover.precland.target_acquired()) {
-        gcs().send_text(MAV_SEVERITY_NOTICE, "Dock: target not acquired");
+//        gcs().send_text(MAV_SEVERITY_NOTICE, "Dock: target not acquired");
         return false;
     }
 
@@ -99,16 +100,18 @@ bool ModeDock::_enter()
 
 void ModeDock::update()
 {
+//	gcs().send_text(MAV_SEVERITY_INFO, "Dock: updating");
     // if docking is complete, rovers stop and boats loiter
     if (_docking_complete) {
         // rovers stop, boats loiter 
         // note that loiter update must be called after successfull initialisation on mode loiter
-        if (_loitering) {
+//        if (_loitering) {
             // mode loiter must be initialised before calling update method
-            rover.mode_loiter.update();
-        } else {
+//            rover.mode_loiter.update();
+//        } else {
+
             stop_vehicle();
-        }
+//        }
         return;
     }
 
@@ -132,13 +135,13 @@ void ModeDock::update()
         _docking_complete = true;
 
         // send a one time notification to GCS
-        gcs().send_text(MAV_SEVERITY_INFO, "Dock: Docking complete");
+        gcs().send_text(MAV_SEVERITY_CRITICAL, "Dock: Docking complete");
 
         // initialise mode loiter if it is a boat
-        if (rover.is_boat()) {
-            // if we fail to enter, we set _loitering to false
-            _loitering = rover.mode_loiter.enter();
-        }
+//        if (rover.is_boat()) {
+//            // if we fail to enter, we set _loitering to false
+//            _loitering = rover.mode_loiter.enter();
+//        }
         return;
     }
 
@@ -197,6 +200,13 @@ void ModeDock::update()
             desired_speed,
             desired_turn_rate);
 }
+bool ModeDock::dock_complete(){
+	if(_docking_complete)
+		return true;
+	else
+		return false;
+}
+
 
 float ModeDock::apply_slowdown(float desired_speed)
 {

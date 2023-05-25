@@ -131,6 +131,7 @@ protected:
     // subclasses override this to perform checks before entering the mode
     virtual bool _enter() { return true; }
 
+
     // subclasses override this to perform any required cleanup when exiting the mode
     virtual void _exit() { return; }
 
@@ -244,6 +245,7 @@ public:
 
     // methods that affect movement of the vehicle in this mode
     void update() override;
+
     void calc_throttle(float target_speed, bool avoidance_enabled) override;
 
     // attributes of the mode
@@ -303,6 +305,7 @@ private:
     bool check_trigger(void);
     bool start_loiter();
     bool start_dock(); //custom added dock mode
+    bool dock_complt(); //custom added dock complete check var to access protected value from dock class
     void start_guided(const Location& target_loc);
     void start_stop();
     void send_guided_position_target();
@@ -350,6 +353,7 @@ private:
     uint16_t loiter_duration;       // How long we should loiter at the nav_waypoint (time in seconds)
     uint32_t loiter_start_time;     // How long have we been loitering - The start time in millis
     bool previously_reached_wp;     // set to true if we have EVER reached the waypoint
+    bool start_dock_success;
 
     // Guided-within-Auto variables
     struct {
@@ -768,7 +772,8 @@ public:
 
     // methods that affect movement of the vehicle in this mode
     void update() override;
-
+    bool dock_complete();
+    bool mark_dock_incomplt();
     bool is_autopilot_mode() const override { return true; }
 
     // return distance (in meters) to destination

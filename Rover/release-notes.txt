@@ -1,5 +1,15 @@
 Rover Release Notes:
 ------------------------------------------------------------------
+#####Custom Releases#####
+Rover 4.5.1 2023-05-25
+
+	- Dock mode added as mission item
+	- Loiter(time) is no longer used for loiter purpose
+	- loiter(time) tries to look for precland target within the timeout period, when target is found, timeout will be disengaged
+	- Tested with mission item, most bugs were fixed
+	
+#####Custom Releases/>#####
+
 Rover 4.4.0-beta1 19-Apr-2023
 Changes from 4.3.0-beta12
 1) New autopilots supported
