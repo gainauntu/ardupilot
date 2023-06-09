@@ -1,6 +1,12 @@
 Rover Release Notes:
 ------------------------------------------------------------------
 #####Custom Releases#####
+Rover 4.5.2 2023-05-26
+
+	- Leak Sensor functionality added
+		- Set AUX4 and AUX5 as GPIO, Where in the code AUX 4 will be set as gpio_input, when detected gpio_high, AUX5 will be set as GPIO_HIGH
+		- Make sure aux 5V rail is getting 5v from power supply.
+	
 Rover 4.5.1 2023-05-25
 
 	- Dock mode added as mission item

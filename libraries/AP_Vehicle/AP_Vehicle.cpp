@@ -324,12 +324,22 @@ void AP_Vehicle::setup()
         gcs().send_text(MAV_SEVERITY_ERROR, "DDS Client: Failed to Initialize");
     }
 #endif
+    hal.gpio->pinMode(53, HAL_GPIO_INPUT); //AUX4 set as gpio input
+    hal.gpio->pinMode(54, HAL_GPIO_OUTPUT);//AUX5 set as gpio output
+    hal.gpio->write(53, 0); //AUX4 set to low
+    hal.gpio->write(54, 0); //AUX5 set to low
 }
 
 void AP_Vehicle::loop()
 {
     scheduler.loop();
     G_Dt = scheduler.get_loop_period_s();
+
+
+//    GCS_SEND_TEXT(MAV_SEVERITY_INFO, "%d", hal.gpio->read(53)); //log AUX4 input value
+    if(hal.gpio->read(53)){
+    	hal.gpio->write(54, 1);
+    }
 
     if (!done_safety_init) {
         /*
